@@ -95,6 +95,11 @@ After compiling the document, the generated PDF includes:
 
 The result is a **professional cybersecurity incident report**.
 
+📄 **Sample Generated Report:**
+[Download cyberthreat-latex.pdf](cyberthreat-latex.pdf)
+
+This PDF demonstrates how the system automatically formats a structured cybersecurity incident report using custom LaTeX commands.
+
 ---
 
 ## Compilation
