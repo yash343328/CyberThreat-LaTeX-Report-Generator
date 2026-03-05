@@ -1,0 +1,37 @@
+\newthreat
+{Phishing Attack}
+{High}
+{User credentials compromised leading to unauthorized access}
+{Immediate password reset and enable multi-factor authentication}
+
+\attacktimeline
+{March 1 2026}
+{Suspicious Email Detected}
+{A phishing email impersonating HR department was sent to employees}
+
+\attacktimeline
+{March 2 2026}
+{Credential Submission}
+{An employee entered login details into a fake website}
+
+\attacktimeline
+{March 3 2026}
+{Unauthorized Access}
+{Attacker accessed internal systems using stolen credentials}
+
+\iocTable{
+malicious-login.com & Phishing website capturing credentials \\ \hline
+185.92.220.14 & Suspicious IP address detected in login logs \\ \hline
+fakeHR@mail-secure.com & Spoofed email used for phishing attack \\ \hline
+}
+
+\attackdiagram
+
+\mitigation{
+\begin{itemize}
+\item Reset compromised passwords
+\item Enable multi-factor authentication
+\item Block malicious domain at firewall
+\item Conduct employee phishing awareness training
+\end{itemize}
+}
