@@ -1,0 +1,78 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cybercommands}
+
+\RequirePackage{xcolor}
+\RequirePackage{tcolorbox}
+\RequirePackage{tikz}
+\RequirePackage{longtable}
+\RequirePackage{geometry}
+
+\geometry{margin=1in}
+
+% Threat Severity Colors
+\definecolor{critical}{RGB}{220,20,60}
+\definecolor{high}{RGB}{255,69,0}
+\definecolor{medium}{RGB}{255,165,0}
+\definecolor{low}{RGB}{60,179,113}
+
+% Threat Overview Box
+\newcommand{\newthreat}[4]{
+\begin{tcolorbox}[colback=red!5,colframe=red!75!black,title=Threat Overview]
+\textbf{Attack Type:} #1
+
+\textbf{Risk Level:} #2
+
+\textbf{Impact:} #3
+
+\textbf{Mitigation:} #4
+\end{tcolorbox}
+}
+
+% Attack Timeline
+\newcommand{\attacktimeline}[3]{
+\begin{tcolorbox}[title=Attack Timeline,colback=blue!5,colframe=blue!70]
+\textbf{Date:} #1
+
+\textbf{Event:} #2
+
+\textbf{Description:} #3
+\end{tcolorbox}
+}
+
+% Indicators of Compromise
+\newcommand{\iocTable}[1]{
+\section*{Indicators of Compromise}
+\begin{longtable}{|p{4cm}|p{10cm}|}
+\hline
+\textbf{Indicator} & \textbf{Description} \\
+\hline
+#1
+\end{longtable}
+}
+
+% Mitigation Strategy
+\newcommand{\mitigation}[1]{
+\begin{tcolorbox}[title=Mitigation Strategy,colback=green!5,colframe=green!70!black]
+#1
+\end{tcolorbox}
+}
+
+% Attack Diagram
+\newcommand{\attackdiagram}{
+\section*{Attack Path Diagram}
+
+\begin{center}
+\begin{tikzpicture}[node distance=2cm]
+
+\node (attacker) [rectangle, draw] {Attacker};
+\node (phishing) [rectangle, draw, below of=attacker] {Phishing Email};
+\node (victim) [rectangle, draw, below of=phishing] {Victim System};
+\node (server) [rectangle, draw, below of=victim] {Credential Theft Server};
+
+\draw[->] (attacker) -- (phishing);
+\draw[->] (phishing) -- (victim);
+\draw[->] (victim) -- (server);
+
+\end{tikzpicture}
+\end{center}
+}
